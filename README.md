@@ -2,9 +2,11 @@
 
 [![CI](https://github.com/Kato-emb/gst-plugin-rtpmp2p/actions/workflows/ci.yml/badge.svg)](https://github.com/Kato-emb/gst-plugin-rtpmp2p/actions/workflows/ci.yml)
 
-GStreamer plugin for RTP MPEG-2 Program Stream (MP2P) depayloading, implemented in Rust.
+GStreamer plugin for RTP MPEG-2 Program Stream (MP2P) depayloading, implemented in Rust. Extracts MPEG-2 Program Stream data from RTP packets according to [RFC 2250](https://datatracker.ietf.org/doc/html/rfc2250).
 
-Extracts MPEG-2 Program Stream data from RTP packets according to [RFC 2250](https://datatracker.ietf.org/doc/html/rfc2250).
+GStreamer does not include a depayloader for this format. This plugin provides one for use with legacy devices that stream MPEG-2 Program Stream over RTP.
+
+> This plugin is not part of [gst-plugins-rs](https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs) and is maintained independently.
 
 ## Elements
 
