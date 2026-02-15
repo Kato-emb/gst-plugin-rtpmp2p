@@ -1,6 +1,12 @@
 name: Setup GStreamer
 description: Install GStreamer development libraries
 
+inputs:
+  version:
+    description: GStreamer version to install (used for Windows only)
+    required: false
+    default: '1.26.10'
+
 runs:
   using: composite
   steps:
@@ -17,3 +23,5 @@ runs:
     - name: Install GStreamer (Windows)
       if: runner.os == 'Windows'
       uses: blinemedical/setup-gstreamer@v1
+      with:
+        version: ${{ inputs.version }}
