@@ -1,0 +1,49 @@
+[package]
+name = "gst-plugin-rtpmp2p"
+version = "0.1.0"
+authors = ["Ryohei Kato <r-kato@musen.co.jp>"]
+edition = "2021"
+rust-version = "1.83.0"
+description = "GStreamer Rust RTP MP2P Plugin"
+readme = "README.md"
+repository = "https://github.com/Kato-emb/gst-plugin-rtpmp2p"
+license = "MPL-2.0"
+
+[dependencies]
+# glib
+glib = { git = "https://github.com/gtk-rs/gtk-rs-core", branch = "0.21", version = "0.21"}
+# gstreamer
+gst = { package = "gstreamer", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", branch = "0.24", version = "0.24", default-features = false, features = ["v1_20"] }
+gst-rtp = { package = "gstreamer-rtp", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", branch = "0.24", version = "0.24", default-features = false, features = ["v1_20"] }
+
+[dev-dependencies]
+gst-check = { package = "gstreamer-check", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", branch = "0.24", version = "0.24", default-features = false, features = ["v1_20"] }
+rtp-types = { version = "0.1" }
+
+[build-dependencies]
+gst-plugin-version-helper = { version = "0.8.0" }
+
+[lib]
+name = "gstrtpmp2p"
+crate-type = ["cdylib", "rlib"]
+path = "src/lib.rs"
+
+[features]
+capi = []
+
+[package.metadata.capi]
+min_version = "0.9.21"
+
+[package.metadata.capi.header]
+enabled = false
+
+[package.metadata.capi.library]
+install_subdir = "gstreamer-1.0"
+versioning = false
+import_library = false
+
+[package.metadata.capi.pkg_config]
+requires_private = "gstreamer-1.0, gstreamer-rtp-1.0, gobject-2.0, glib-2.0"
+
+[package.metadata.gstreamer]
+release_date = "2026-02-15"
