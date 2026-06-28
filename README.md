@@ -54,7 +54,7 @@ Place the downloaded file in the GStreamer plugin directory, or set `GST_PLUGIN_
 
 #### Requirements
 
-- Rust 1.83.0+
+- Rust 1.92+
 - GStreamer 1.20+ development libraries
 
 #### Compile
